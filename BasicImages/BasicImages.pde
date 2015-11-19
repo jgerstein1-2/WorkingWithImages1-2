@@ -1,6 +1,8 @@
 //declare PImage
 PImage pug;
 
+int mosaicSize = 2;
+
 void setup() {
   //canvas size = pug size
   size(600, 400);
@@ -15,9 +17,20 @@ void setup() {
 }
 
 void draw() {
-  int x = int(random(width));
-  int y = int(random(height));
-  float sz = random(2, 30);
-  fill(pug.get(x, y));
-  ellipse(x, y, sz, sz);
+  background(pug);
+
+  for (int x = 0; x < width; x += mosaicSize) {
+    for (int y = 0; y < height; y += mosaicSize) {
+      fill(pug.get(x, y));    
+      rect(x, y, mosaicSize, mosaicSize);
+    }
+  }
+}
+
+void keyPressed() {
+  if (keyCode == UP) {
+    mosaicSize++;
+  } else if (keyCode == DOWN) {
+    mosaicSize--;
+  }
 }

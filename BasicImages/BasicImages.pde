@@ -1,7 +1,9 @@
 //declare PImage
 PImage pug;
+PImage kittyBurrito;
 
 int mosaicSize = 2;
+float scaleFactor = .3;
 
 void setup() {
   //canvas size = pug size
@@ -9,22 +11,18 @@ void setup() {
 
   //load pug picture into PImage
   pug = loadImage("dog.jpg");
+  kittyBurrito = loadImage("cat.jpg");
 
   //use pug as background
   background(pug);
 
-  noStroke();
+  imageMode(CENTER);
 }
 
 void draw() {
   background(pug);
 
-  for (int x = 0; x < width; x += mosaicSize) {
-    for (int y = 0; y < height; y += mosaicSize) {
-      fill(pug.get(x, y));    
-      rect(x, y, mosaicSize, mosaicSize);
-    }
-  }
+  image(kittyBurrito, mouseX, mouseY, kittyBurrito.width*scaleFactor, kittyBurrito.height*scaleFactor);
 }
 
 void keyPressed() {

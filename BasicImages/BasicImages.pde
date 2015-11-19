@@ -1,26 +1,23 @@
 //declare PImage
 PImage pug;
 
-float scaleFactor = .1;
-
 void setup() {
-  size(800, 600);
-  background(0);
+  //canvas size = pug size
+  size(600, 400);
 
   //load pug picture into PImage
   pug = loadImage("dog.jpg");
 
-  //display image from center
-  imageMode(CENTER);
+  //use pug as background
+  background(pug);
+
+  noStroke();
 }
 
 void draw() {
-  //choose a random scale factor
-  scaleFactor = random(.001, .5);
-
-  //tint the pug
-  tint(200, 200, 255);
-
-  //display pug at random location, with a random size based on scale factor
-  image(pug, random(width), random(height), pug.width*scaleFactor, pug.height*scaleFactor);
+  int x = int(random(width));
+  int y = int(random(height));
+  float sz = random(2, 30);
+  fill(pug.get(x, y));
+  ellipse(x, y, sz, sz);
 }

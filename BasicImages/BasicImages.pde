@@ -9,6 +9,9 @@ void setup() {
 
   //load pug picture into PImage
   pug = loadImage("dog.jpg");
+
+  //display image from center
+  imageMode(CENTER);
 }
 
 void draw() {

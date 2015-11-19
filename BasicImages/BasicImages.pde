@@ -17,6 +17,10 @@ void setup() {
 void draw() {
   //choose a random scale factor
   scaleFactor = random(.001, .5);
+
+  //tint the pug
+  tint(200, 200, 255);
+
   //display pug at random location, with a random size based on scale factor
   image(pug, random(width), random(height), pug.width*scaleFactor, pug.height*scaleFactor);
 }
